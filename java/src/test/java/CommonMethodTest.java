@@ -38,4 +38,15 @@ class CommonMethodTest {
         assertEquals((2 + 4 + 6 + counter) * 2, result);
     }
 
+    @Test
+    void testFindFirstIndexWithMinimumCount() {
+        int[] tallies = {2, 5, 3, 8, 4, 1};
+        int value = 3;
+        int result = CommonMethod.findFirstIndexWithMinimumCount(tallies, value);
+        int expected = 6;
+        assertEquals(expected, result);
+
+    }
+
+
 }

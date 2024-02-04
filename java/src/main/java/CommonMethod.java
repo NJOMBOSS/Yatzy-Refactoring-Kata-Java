@@ -25,4 +25,14 @@ public class CommonMethod {
             .reduce(Math::addExact)
             .orElse(-1) + counter) * 2;
     }
+
+    /*Création de la méthode  commune permettant de
+    rechercher dans un tableau les valeur supérieur à value et effectuer le traitement */
+    public static int findFirstIndexWithMinimumCount(int[] tallies, int value) {
+        return IntStream.range(0, 6)
+            .filter(index -> tallies[index] >= value)
+            .map(index -> (index + 1) * value)
+            .findFirst()
+            .orElse(0);
+    }
 }
