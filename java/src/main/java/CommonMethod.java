@@ -1,4 +1,6 @@
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.IntStream;
 
 public class CommonMethod {
         /* creation d'une mehtode commune qui filtre les élments égaux
@@ -9,5 +11,18 @@ public class CommonMethod {
             .filter(nombre -> nombre == filterValue)
             .mapToInt(value -> value)
             .sum();
+    }
+
+     /*Création de la méthode  commune permettant de
+       filtrer, sommer et doubler le résultat */
+
+    public static int filteredValuesSumAndDouble(int[] counts, int maxSize, int counter) {
+        return (IntStream.range(0, 6)
+            .filter(index -> counts[index] >= 2)
+            .boxed()
+            .sorted(Comparator.reverseOrder())
+            .limit(maxSize)
+            .reduce(Math::addExact)
+            .orElse(-1) + counter) * 2;
     }
 }
